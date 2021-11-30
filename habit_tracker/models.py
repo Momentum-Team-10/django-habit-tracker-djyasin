@@ -20,6 +20,7 @@ class Habit(models.Model):
     # Must be logged in to use
 
 class Record(models.Model):
+    pass
     # frequency = models.BooleanField()
     # # do I want this?
     
