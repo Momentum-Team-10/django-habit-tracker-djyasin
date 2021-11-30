@@ -13,5 +13,13 @@ class User(AbstractUser):
 class Habit(models.Model):
     habit = models.CharField(max_length=75)
     goal = models.CharField(max_length=75)
-    frequency = models.BooleanField()
+    # make this an integer field 
+    # Add unit char, investigate that
+    # habit created date
+    # Add PK user relationship 
+    # Must be logged in to use
+
+class Record(models.Model):
+    # frequency = models.BooleanField()
+    # # do I want this?
     
