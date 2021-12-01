@@ -9,7 +9,8 @@ def add_habit(request):
         if form.is_valid():
             habit = form.save()
             habit.save()
-            return redirect("create_card", habit_pk=habit.pk)
+            return redirect("add_habit.html", habit_pk=habit.pk)
     else:
         form = HabitForm()
     return render(request, "add_habit.html", {"form": form}) 
+

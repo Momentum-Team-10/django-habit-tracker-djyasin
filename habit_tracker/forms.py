@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 class HabitForm(forms.Form):
     class Meta:
         model = Habit
-        fields = ["habit", "goal","created_at", "user_id"]
+        fields = ["habit", "goal", "created_at", "user_id"]
 
 
 class RecordForm(forms.ModelForm):
