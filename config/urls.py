@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 import debug_toolbar
+from habit_tracker import views as habit_tracker_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include(debug_toolbar.urls)),
+    path('add_habit/', habit_tracker_views.add_habit, name="add_habit"),
 ]
