@@ -2,25 +2,32 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
-    pass
-    # def __repr__(self):
-    #     # return f"<User username={self.username}>"
-        
+    def __repr__(self):
+        return f"<User username={self.username}>"
 
     def __str__(self):
         return self.username
 
 class Habit(models.Model):
-    habit = models.CharField(max_length=75)
-    goal = models.CharField(max_length=75)
-    # make this an integer field 
-    # Add unit char, investigate that
-    # habit created date
-    # Add PK user relationship 
-    # Must be logged in to use
+    habit = models.CharField(max_length=75, null=True)
+    goal = models.IntegerField(null=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    user_id = models.ForeignKey('User', on_delete=models.CASCADE, null=True)
+
+    def __repr__(self):
+        return f"<Habit name={self.name}>"
+
+    def __str__(self):
+        return self.name
+
 
 class Record(models.Model):
-    pass
-    # frequency = models.BooleanField()
-    # # do I want this?
-    
+    goal_progress = models.IntegerField(null=True)
+    date_entered = models.DateTimeField(auto_now_add=True, null=True)
+    habit_id = models.ForeignKey('Habit', on_delete=models.CASCADE, null=True)
+
+    def __repr__(self):
+        return f"<DailyRecord habit={self.habit_id}"
+
+    def __str__(self):
+        return self.habit_id
