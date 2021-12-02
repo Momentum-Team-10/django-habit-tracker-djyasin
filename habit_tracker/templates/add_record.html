@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Track your Progress</h2>
+{% for habit in habits %}
+<p>Habit to track: {{ habit.habit }}</p> 
+<p>Goal number of days per week: {{ habit.goal }}</p>
+
+{% endfor %}
+{% endblock %}

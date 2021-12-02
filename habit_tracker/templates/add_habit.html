@@ -4,7 +4,8 @@
 <div class="form">
     <form action="{% url 'add_habit' %}" method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+        <p>Enter a habit you would like to track: {{ form.habit }}</p>
+        <p>Enter the number of days per week you would like to complete this activity: {{ form.goal }}</p>
         <input type="submit" value="Submit">
     </form>
 </div>

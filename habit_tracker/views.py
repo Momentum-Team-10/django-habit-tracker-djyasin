@@ -44,3 +44,5 @@ def edit_habit(request, pk):
     return render(request, "edit_habit.html", {
         "form": form, "habit": habit, "pk": pk})
 
+def add_record(request, pk):
+    pass
