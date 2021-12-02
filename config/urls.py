@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include(debug_toolbar.urls)),
     path('add_habit/', habit_tracker_views.add_habit, name="add_habit"),
+    path('', habit_tracker_views.home, name='home'),
 ]

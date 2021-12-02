@@ -5,10 +5,9 @@ from django.contrib.auth.decorators import login_required
 
 def home(request):
     user = request.user
-    habits = Habit.objects.filter(user=user.pk)
+    habits = Habit.objects.filter()
 
-    return render(request, "habit_tracker/home.html", {
-        "user": user, "habits": habits,})
+    return render(request, "home.html", {"habits": habits,})
 
 # @login_required
 def add_habit(request):
