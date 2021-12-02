@@ -4,13 +4,14 @@ from .forms import HabitForm, RecordForm, UserForm
 from django.contrib.auth.decorators import login_required
 
 def add_habit(request):
-    if request.method == "POST":
+    user = request.user
+    if request.method == "GET":
+        form = HabitForm()
+    else: 
         form = HabitForm(data=request.POST)
         if form.is_valid():
-            habit = form.save()
-            habit.save()
+            habit = form.save(commit=False)
+            form.save()
             return redirect("add_habit.html", habit_pk=habit.pk)
-    else:
-        form = HabitForm()
-    return render(request, "add_habit.html", {"form": form}) 
+    return render(request, "add_habit.html", {"form": form, "user": user}) 
 

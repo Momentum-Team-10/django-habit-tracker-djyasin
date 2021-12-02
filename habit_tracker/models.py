@@ -16,10 +16,10 @@ class Habit(models.Model):
     user_id = models.ForeignKey('User', on_delete=models.CASCADE, null=True)
 
     def __repr__(self):
-        return f"<Habit name={self.name}>"
+        return f"<Habit={self.habit}>"
 
     def __str__(self):
-        return self.name
+        return self.habit
 
 
 class Record(models.Model):

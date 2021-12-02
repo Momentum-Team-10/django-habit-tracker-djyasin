@@ -3,10 +3,10 @@ from .models import Habit, Record, User
 from django.contrib.auth.forms import UserCreationForm
 
 
-class HabitForm(forms.Form):
+class HabitForm(forms.ModelForm):
     class Meta:
         model = Habit
-        fields = ["habit", "goal", "created_at", "user_id"]
+        fields = ["habit", "goal"]
 
 
 class RecordForm(forms.ModelForm):
