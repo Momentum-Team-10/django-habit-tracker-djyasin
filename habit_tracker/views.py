@@ -23,3 +23,11 @@ def add_habit(request):
             return redirect(to='home')
     return render(request, "add_habit.html", {"form": form, "user": user}) 
 
+def delete_habit(request, pk):
+    habit = get_object_or_404(Habit, pk=pk)
+    if request.method == 'POST':
+        habit.delete()
+        return redirect(to='/')
+    return render(request, "delete_habit.html",
+                  {"habit": habit})
+

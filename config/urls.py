@@ -24,4 +24,5 @@ urlpatterns = [
     path('__debug__/', include(debug_toolbar.urls)),
     path('add_habit/', habit_tracker_views.add_habit, name="add_habit"),
     path('', habit_tracker_views.home, name='home'),
+    path('<int:pk>/delete_deck/', habit_tracker_views.delete_habit, name='delete_habit'),
 ]
