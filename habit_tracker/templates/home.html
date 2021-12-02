@@ -5,6 +5,7 @@
 {% for habit in habits %}
 <p>Habit to track: {{ habit.habit }}</p> 
 <p>Number of days per week: {{ habit.goal }}</p>
-<a href="{% url 'delete_habit' pk=habit.pk %}">Delete Habit</a>
+<p><a href="{% url 'edit_habit' pk=habit.pk %}">Edit Habit</a></p>
+<p><a href="{% url 'delete_habit' pk=habit.pk %}">Delete Habit</a></p>
 {% endfor %}
 {% endblock %}

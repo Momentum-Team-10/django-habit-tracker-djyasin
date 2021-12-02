@@ -29,5 +29,18 @@ def delete_habit(request, pk):
         habit.delete()
         return redirect(to='/')
     return render(request, "delete_habit.html",
-                  {"habit": habit})
+                {"habit": habit})
+
+def edit_habit(request, pk):
+    habit = get_object_or_404(Habit, pk=pk)
+    if request.method == 'GET':
+        form = HabitForm(instance=habit)
+    else:
+        form = HabitForm(data=request.POST, instance=habit)
+        if form.is_valid():
+            form.save()
+            return redirect(to='/')
+
+    return render(request, "edit_habit.html", {
+        "form": form, "habit": habit, "pk": pk})
 
