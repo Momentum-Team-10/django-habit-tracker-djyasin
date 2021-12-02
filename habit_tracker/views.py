@@ -9,6 +9,11 @@ def home(request):
 
     return render(request, "home.html", {"habits": habits,})
 
+def habit_library(request):
+    user = request.user
+    habits = Habit.objects.filter()
+    return render(request, "habit_library.html", {"habits": habits,})
+
 # @login_required
 def add_habit(request):
     user = request.user

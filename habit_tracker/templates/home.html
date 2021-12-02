@@ -1,12 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 <h2>Habit Tracker</h2>
-<a href="{% url 'add_habit' %}"> Add a Habit to Track</a>
-{% for habit in habits %}
-<p>Habit to track: {{ habit.habit }}</p> 
-<p>Number of days per week: {{ habit.goal }}</p>
-<p>Date created: {{ habit.created_at }}</p>
-<p><a href="{% url 'edit_habit' pk=habit.pk %}">Edit Habit</a></p>
-<p><a href="{% url 'delete_habit' pk=habit.pk %}">Delete Habit</a></p>
-{% endfor %}
+<li><a href="/logout/">Logout</a></li>
+<li><a href="login.html">Login</a></li>
+<p><a href="{% url 'add_habit' %}"> Add a Habit to Track</a></p>
+<p><a href="{% url 'habit_library' %}"> View Habits</a></p>
+
 {% endblock %}

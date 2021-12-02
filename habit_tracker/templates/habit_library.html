@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Habit Tracker</h2>
+<a href="{% url 'home' %}">Home</a>
+{% for habit in habits %}
+<p>Habit to track: {{ habit.habit }}</p> 
+<p>Number of days per week: {{ habit.goal }}</p>
+<p>Date created: {{ habit.created_at }}</p>
+<p><a href="{% url 'edit_habit' pk=habit.pk %}">Edit Habit</a></p>
+<p><a href="{% url 'delete_habit' pk=habit.pk %}">Delete Habit</a></p>
+{% endfor %}
+{% endblock %}
