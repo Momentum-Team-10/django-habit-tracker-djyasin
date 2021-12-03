@@ -50,4 +50,15 @@ def edit_habit(request, pk):
         "form": form, "habit": habit, "pk": pk})
 
 def add_record(request, pk):
-    pass
+    habit = get_object_or_404(Habit, pk=pk)
+    if request.method == "GET":
+        form = RecordForm(instance=habit)
+    else:
+        form = RecordForm(data=request.POST, instance=habit)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.habit_id = habit
+            form.save()
+            return redirect('user_profile')
+    return render(request, 'add_record.html', {"form": form, "habit": habit})
+

@@ -1,9 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Track your Progress</h2>
-{% for habit in habits %}
-<p>Habit to track: {{ habit.habit }}</p> 
-<p>Goal number of days per week: {{ habit.goal }}</p>
+<h1>Add a Record</h1>
+<div class="form">
+    <form action="{% url 'home' %}" method="POST">
+        {% csrf_token %}
+        <p>Habit:{{ form.habit_id }}</p>
+        <p>Track Progress {{ form.goal_progress }}</p>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+{% endblock content %}
 
-{% endfor %}
-{% endblock %}
+
