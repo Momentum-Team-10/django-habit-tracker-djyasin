@@ -25,8 +25,8 @@ urlpatterns = [
     path('add_habit/', habit_tracker_views.add_habit, name="add_habit"),
     path('habit_library/', habit_tracker_views.habit_library, name="habit_library"),
     path('', habit_tracker_views.home, name='home'),
-    path('<int:pk>/delete_habit/', habit_tracker_views.delete_habit, name='delete_habit'),
-    path('<int:pk>/edit_habit/', habit_tracker_views.edit_habit, name='edit_habit'),
-    path('<int:pk>/add_record/', habit_tracker_views.add_record, name='add_record'),
-    path('accounts', include('registration.backends.simple.urls')),
+    path('delete_habit/<int:pk>/', habit_tracker_views.delete_habit, name='delete_habit'),
+    path('edit_habit/<int:pk>/', habit_tracker_views.edit_habit, name='edit_habit'),
+    path('add_record/<int:pk>/', habit_tracker_views.add_record, name='add_record'),
+    path('accounts/', include('registration.backends.simple.urls')),
 ]

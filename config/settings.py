@@ -84,8 +84,13 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
+        'DIRS': [str(BASE_DIR.joinpath('templates'))],
+        
     },
 ]
+
+
+
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
@@ -142,11 +147,14 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REGISTRATION_AUTO_LOGIN = True
+REGISTRATION_OPEN = True
 
 AUTH_USER_MODEL = "habit_tracker.User"
 
 
 django_on_heroku.settings(locals())
 del DATABASES['default']['OPTIONS']['sslmode']
+LOGIN_REDIRECT_URL = '/'
+
 
 

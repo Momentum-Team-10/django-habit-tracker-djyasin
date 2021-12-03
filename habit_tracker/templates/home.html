@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Habit Tracker</h2>
-<li><a href="/logout/">Logout</a></li>
-<li><a href="login.html">Login</a></li>
-<p><a href="{% url 'add_habit' %}"> Add a Habit to Track</a></p>
-<p><a href="{% url 'habit_library' %}"> View Habits</a></p>
+<h1>Habit Tracker</h1>
+<li><a href="{% url 'auth_logout' %}">Logout</a></li>
+<li><a href="{% url 'auth_login' %}">Login</a></li>
+<li><a href="{% url 'registration_register' %}">Register</a></li>
+<p><h4><a href="{% url 'add_habit' %}"> Add a Habit to Track</a></h4></p>
+<p><h4><a href="{% url 'habit_library' %}"> View Habits</a></h4></p>
 
 {% endblock %}
