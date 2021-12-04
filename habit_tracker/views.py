@@ -14,19 +14,19 @@ def habit_library(request):
     habits = Habit.objects.filter()
     return render(request, "habit_library.html", {"habits": habits,})
 
-# @login_required
+@login_required
 def add_habit(request):
-    user = request.user
     if request.method == "GET":
         form = HabitForm()
-    else: 
+    else:
         form = HabitForm(data=request.POST)
         if form.is_valid():
-            habit = form.save(commit=False)
-            habit.user_id = user.pk
+            form = form.save(commit=False)
+            form.user_id = request.user
             form.save()
             return redirect(to='home')
-    return render(request, "add_habit.html", {"form": form, "user": user}) 
+    return render(request, "add_habit.html", {"form": form}) 
+@login_required
 
 def delete_habit(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
@@ -36,6 +36,7 @@ def delete_habit(request, pk):
     return render(request, "delete_habit.html",
                 {"habit": habit})
 
+@login_required
 def edit_habit(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
     if request.method == 'GET':
@@ -49,6 +50,7 @@ def edit_habit(request, pk):
     return render(request, "edit_habit.html", {
         "form": form, "habit": habit, "pk": pk})
 
+@login_required
 def add_record(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
     if request.method == "GET":

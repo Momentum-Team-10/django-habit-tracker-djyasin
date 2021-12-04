@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
+<header>
+    <h2>Habit Tracker</h2>
+    {% if user.is_authenticated %}
+   <li>You are logged in. Hello, {{ user.username }} &#128059;</li>
+    {% endif %}
+  <li><a href="{% url 'home' %}">Home</a></li>
+  </header>
 <h1>Add a Record</h1>
 <div class="form">
     <form action="{% url 'add_record' pk=habit.pk %}" method="POST">
