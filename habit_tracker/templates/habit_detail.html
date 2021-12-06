@@ -18,10 +18,13 @@
 </header>
 <body>
   {% for habit in habits %}
-  <p>Habit: {{ habit.habit }}</p>
+  <p>Habit to track: {{ habit.habit }}</p>
   <p>Number of days per week: {{ habit.goal }}</p>
   <p>Date created: {{ habit.created_at }}</p>
-  <p><a href="{% url 'habit_detail' %}"> Habit Detail</a></p>
+  <p>Progress: {{ record.goal_progress }}</p>
+  <p><a href="{% url 'add_record' pk=habit.pk %}">Track Habit</a></p>
+  <p><a href="{% url 'edit_habit' pk=habit.pk %}">Edit Habit</a></p>
+  <p><a href="{% url 'delete_habit' pk=habit.pk %}">Delete Habit</a></p>
   <script
     src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
     integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"

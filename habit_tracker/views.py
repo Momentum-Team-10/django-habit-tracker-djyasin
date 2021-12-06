@@ -14,6 +14,11 @@ def habit_library(request):
     habits = Habit.objects.filter()
     return render(request, "habit_library.html", {"habits": habits,})
 
+def habit_detail(request):
+    user = request.user
+    habits = Habit.objects.filter()
+    return render(request, "habit_detail.html", {"habits": habits,})
+
 @login_required
 def add_habit(request):
     if request.method == "GET":
