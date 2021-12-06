@@ -28,6 +28,6 @@ urlpatterns = [
     path('delete_habit/<int:pk>/', habit_tracker_views.delete_habit, name='delete_habit'),
     path('edit_habit/<int:pk>/', habit_tracker_views.edit_habit, name='edit_habit'),
     path('add_record/<int:pk>/', habit_tracker_views.add_record, name='add_record'),
-    path('habit_detail', habit_tracker_views.habit_detail, name='habit_detail'),
+    path('habit_detail/<int:pk>', habit_tracker_views.habit_detail, name='habit_detail'),
     path('accounts/', include('registration.backends.simple.urls')),
 ]

@@ -17,11 +17,10 @@
 <li><a href="{% url 'home' %}">Home</a></li>
 </header>
 <body>
-  {% for habit in habits %}
-  <p>Habit to track: {{ habit.habit }}</p>
+  <p>Habit: {{ habit.habit }}</p>
   <p>Number of days per week: {{ habit.goal }}</p>
   <p>Date created: {{ habit.created_at }}</p>
-  <p>Progress: {{ record.goal_progress }}</p>
+  <p>Tracked Progress: {{ record.goal_progress }}</p>
   <p><a href="{% url 'add_record' pk=habit.pk %}">Track Habit</a></p>
   <p><a href="{% url 'edit_habit' pk=habit.pk %}">Edit Habit</a></p>
   <p><a href="{% url 'delete_habit' pk=habit.pk %}">Delete Habit</a></p>
@@ -36,4 +35,4 @@
     crossorigin="anonymous"
   ></script>
 </body>
-{% endfor %} {% endblock %}
+{% endblock %}

@@ -14,10 +14,18 @@ def habit_library(request):
     habits = Habit.objects.filter()
     return render(request, "habit_library.html", {"habits": habits,})
 
-def habit_detail(request):
-    user = request.user
-    habits = Habit.objects.filter()
-    return render(request, "habit_detail.html", {"habits": habits,})
+def habit_detail(request, pk):
+    habit = get_object_or_404(Habit, pk=pk)
+    if request.method == 'GET':
+        form = HabitForm(instance=habit)
+    else:
+        form = HabitForm(data=request.POST, instance=habit)
+        if form.is_valid():
+            form.save()
+            return redirect(to='/')
+
+    return render(request, "habit_detail.html", {
+        "form": form, "habit": habit, "pk": pk})
 
 @login_required
 def add_habit(request):
