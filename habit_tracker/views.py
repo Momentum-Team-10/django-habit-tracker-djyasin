@@ -25,7 +25,7 @@ def habit_detail(request, pk):
             return redirect(to='/')
 
     return render(request, "habit_detail.html", {
-        "form": form, "habit": habit, "pk": pk})
+        "form": form, "habit": habit, "pk": pk,})
 
 @login_required
 def add_habit(request):
@@ -72,7 +72,7 @@ def add_record(request, pk):
         form = RecordForm(data=request.POST)
         if form.is_valid():
             form = form.save(commit=False)
-            form.habit_id = habit
+            form.habit = habit
             form.save()
             return redirect('home')
     return render(request, 'add_record.html', {

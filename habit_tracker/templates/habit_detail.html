@@ -20,7 +20,9 @@
   <p>Habit: {{ habit.habit }}</p>
   <p>Number of days per week: {{ habit.goal }}</p>
   <p>Date created: {{ habit.created_at }}</p>
-  <p>Tracked Progress: {{ record.goal_progress }}</p>
+    {% for record in habit.records.all %}
+    <p>Tracked Entries: {{ record.goal_progress }} {{ record.date_entered }}</p>
+    {% endfor %}
   <p><a href="{% url 'add_record' pk=habit.pk %}">Track Habit</a></p>
   <p><a href="{% url 'edit_habit' pk=habit.pk %}">Edit Habit</a></p>
   <p><a href="{% url 'delete_habit' pk=habit.pk %}">Delete Habit</a></p>

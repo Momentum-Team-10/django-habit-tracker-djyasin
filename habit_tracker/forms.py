@@ -12,7 +12,7 @@ class HabitForm(forms.ModelForm):
 class RecordForm(forms.ModelForm):
     class Meta:
         model = Record
-        fields = ["goal_progress", "habit_id"]
+        fields = ["goal_progress", "habit"]
 
 class UserForm(UserCreationForm):
     name = forms.CharField(max_length=100, help_text='Name')

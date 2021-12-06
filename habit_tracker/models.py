@@ -25,11 +25,11 @@ class Habit(models.Model):
 class Record(models.Model):
     goal_progress = models.IntegerField(null=True)
     date_entered = models.DateTimeField(default=timezone.now, null=True)
-    habit_id = models.ForeignKey('Habit', on_delete=models.CASCADE, null=True)
+    habit = models.ForeignKey('Habit', on_delete=models.CASCADE, null=True, related_name="records")
 
     def __repr__(self):
-        return f"<DailyRecord habit={self.habit_id}"
+        return f"<DailyRecord habit={self.habit}"
 
     def __str__(self):
-        return self.habit_id
+        return self.habit
 

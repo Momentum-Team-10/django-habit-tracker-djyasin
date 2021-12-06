@@ -11,7 +11,7 @@
 <div class="form">
     <form action="{% url 'add_record' pk=habit.pk %}" method="POST">
         {% csrf_token %}
-        <p>Habit:{{ form.habit_id }}</p>
+        <p>Habit:{{ form.habit }}</p>
         <p>Track Progress {{ form.goal_progress }}</p>
         <input type="submit" value="Submit">
     </form>
