@@ -12,6 +12,8 @@ gunicorn = "*"
 django-extensions = "*"
 django-debug-toolbar = "*"
 django-registration-redux = "*"
+djangorestframework = "*"
+markdown = "*"
 
 [dev-packages]
 
