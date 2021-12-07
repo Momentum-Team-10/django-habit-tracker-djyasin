@@ -36,6 +36,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api/habit_library',api_views.HabitLibraryView.as_view(), name="api_habit_library"),
     path('api/habit_detail/<int:pk>',api_views.HabitDetailView.as_view(), name="api_habit_detail"),
+    path('api/create_habit', api_views.CreateHabitView.as_view(), name='api_create_habit'),
     
 ]
 

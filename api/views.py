@@ -18,4 +18,4 @@ class HabitDetailView(RetrieveAPIView):
     serializer_class = HabitSerializer
 
 class CreateHabitView(CreateAPIView):
-    pass
+    serializer_class = HabitSerializer
