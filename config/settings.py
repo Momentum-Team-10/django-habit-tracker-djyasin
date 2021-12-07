@@ -55,7 +55,9 @@ INSTALLED_APPS = [
     'django_extensions',
     'debug_toolbar',
     'habit_tracker',
+    'api',
     'registration',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
