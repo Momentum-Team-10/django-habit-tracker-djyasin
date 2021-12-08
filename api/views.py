@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
-from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, DestroyAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, DestroyAPIView, RetrieveDestroyAPIView
 from rest_framework.response import Response
 from habit_tracker.models import Habit
 from .serializers import HabitSerializer
@@ -20,6 +20,6 @@ class HabitDetailView(RetrieveAPIView):
 class CreateHabitView(CreateAPIView):
     serializer_class = HabitSerializer
 
-class DeleteHabitView(DestroyAPIView):
+class DeleteHabitView(RetrieveDestroyAPIView):
     queryset = Habit.objects.all()
     serializer_class = HabitSerializer
