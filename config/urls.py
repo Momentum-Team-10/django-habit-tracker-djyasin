@@ -39,6 +39,7 @@ urlpatterns = [
     path('api/create_habit', api_views.CreateHabitView.as_view(), name='api_create_habit'),
     path('api/delete_habit/<int:pk>', api_views.DeleteHabitView.as_view(), name='api_delete_habit'),
     path('api/edit_habit/<int:pk>', api_views.EditHabitView.as_view(), name='api_edit_habit'),
+    path('api/habits/<int:pk>/records/', api_views.RecordLibraryView.as_view(), name = "api_record_library"),
     
 ]
 
