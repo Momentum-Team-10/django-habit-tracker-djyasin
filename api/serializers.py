@@ -11,7 +11,7 @@ class RecordSerializer(serializers.ModelSerializer):
 class RecordForHabitSerializer(serializers.ModelSerializer):
     class Meta:
         model = Record
-        fields = ('pk','goal_progress', 'date_entered',)
+        fields = ('pk','habit', 'goal_progress', 'date_entered',)
 
 class HabitSerializer(serializers.ModelSerializer):
     records = RecordSerializer(many=True, read_only=True)

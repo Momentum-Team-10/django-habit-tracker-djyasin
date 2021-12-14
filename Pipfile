@@ -14,6 +14,7 @@ django-debug-toolbar = "*"
 django-registration-redux = "*"
 djangorestframework = "*"
 markdown = "*"
+djoser = "*"
 
 [dev-packages]
 

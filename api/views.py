@@ -5,7 +5,6 @@ from rest_framework.response import Response
 from habit_tracker.models import Habit, Record
 from .serializers import HabitSerializer, RecordSerializer
 
-
 class HabitLibraryView(APIView):
     def get(self, request, format=None):
         habits = Habit.objects.all()
